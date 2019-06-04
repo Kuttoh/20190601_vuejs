@@ -7,21 +7,34 @@
 <p>Welcome Home: {{msg}}</p>
 
     <ul>
-        <li v-for="name in names" >{{name}}</li>
+        <li v-for="name in names" v-text="name"></li>
     </ul>
+
+    <input id="input" type="text" v-model="newName">
+
+    <button v-on:click="addName">Add Name</button>
 
 </div>
 
 </template>
 
 <script>
-    import Vue from 'vue'
     export default {
+
         data(){
             return {
                 msg: 'Lion King',
+                newName: '',
                 names: ['Sharon', "Sam", "PostMarlone", "Kuttoh" ]
             }
+        },
+
+        methods:{
+            addName() {
+                this.names.push(this.newName) //add new name
+                this.newName =  '';
+            }
+
         }
     }
 </script>
