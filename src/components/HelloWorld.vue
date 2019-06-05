@@ -18,6 +18,10 @@
         <button :title="title">Hover over me</button>
     </div>
 
+    <div>
+        <button :disabled="active" @click="toggle">Click Me</button>
+    </div>
+
 </div>
 
 </template>
@@ -30,7 +34,8 @@
                 msg: 'Lion King',
                 newName: '',  //initialize variable newName
                 names: ['Sharon', "Sam", "PostMarlone", "Kuttoh" ],
-                title : "What are you looking for?"
+                title : "What are you looking for?",
+                active: false
             }
         },
 
@@ -38,6 +43,9 @@
             addName() {
                 this.names.push(this.newName) //add new name to array
                 this.newName =  ''; //reset input field to blank
+            },
+            toggle(){
+                this.active = true;
             }
         }
     }
@@ -47,4 +55,5 @@
   input{
     color:rgb(0,107,91);
   }
+
 </style>
