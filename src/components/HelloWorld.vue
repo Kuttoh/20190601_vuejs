@@ -22,6 +22,12 @@
         <button :disabled="active" @click="toggle">Click Me</button>
     </div>
 
+    <div>
+        <ul>
+            <li v-for="activity in activities" v-if="activity.completed" v-text="activity.description"></li>
+        </ul>
+    </div>
+
 </div>
 
 </template>
@@ -35,9 +41,13 @@
                 newName: '',  //initialize variable newName
                 names: ['Sharon', "Sam", "PostMarlone", "Kuttoh" ],
                 title : "What are you looking for?",
-                active: false
-            }
-        },
+                active: false,
+                activities: [
+                    {description: "Wake-Up", completed:true},
+                    {description: "Run", completed:false}
+                    ]
+                }
+            },
 
         methods:{
             addName() {
